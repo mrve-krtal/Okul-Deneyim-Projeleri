@@ -1,0 +1,9 @@
+Projenin Adý: Kullanýlabilirlik Aðaç Testi
+Hazýrlayan: 14545534-Merve KARTAL
+
+	TreeJack test aracý ile Fýrat Üniversitesi Öðrenci Bilgi Sistemlerini üzerinde yapmýþ olduðum aðaç testinde 10 kullanýcýnýn 
+not listesine hangi aþamalarla eriþilebileceði üzerinde analizlerini yaptým. Bu 10 kullanýcýdan kaç kiþinin doðru adýmlar izlediðini, 
+kaç kiþinin yanlýþ adýmlar izlediðini ve ne kadar sürede iþlemi gerçekleþtirdiðini gözlemledim ve nasýl bir aðaç oluþacaðýna baktým.
+	
+	Ayný zaman da php ile kendi blog sitemin aðaç testini greçkleþtirdim.
+

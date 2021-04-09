@@ -1,0 +1,90 @@
+<?php 
+
+//Site Link Çıkarıcı Başlangıç
+if(isset($_GET['btn_harita'])){
+	function Baglan($link)
+	{
+		$urlAl = curl_init();
+		curl_setopt($urlAl, CURLOPT_URL, $link);
+		curl_setopt($urlAl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($urlAl, CURLOPT_USERAGENT, $_SERVER["HTTP_USER_AGENT"]);
+		$cikti = curl_exec($urlAl);
+		curl_close($urlAl);
+		return str_replace(array("\n","\t","\r"), null, $cikti);
+	}
+
+	$link= $_GET['txt_siteharita'];
+	$Conn = Baglan($link);
+
+//Site Harita Bulucu Başlangıç
+	preg_match_all('#href="(.*?)"#', $Conn, $harita);
+}
+//Site Harita Bulucu Bitiş
+
+//Yazdırma
+if(isset($_GET['btn_harita'])){
+	for ($i=0; $i < count($harita[1]) ; $i++) { ?>
+		<a href="<?php echo $_GET['txt_siteharita'].'/'.$harita[1][$i]; ?>"><?php echo $harita[1][$i]; ?><br></a>
+		<?php
+	}
+}
+//Yazdırma Bitiş
+
+?>
+
+
+
+<?php 
+
+include('fonksiyon.php');
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>  Site Haritasi </title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/prettyPhoto.css" rel="stylesheet">
+	<link href="css/price-range.css" rel="stylesheet">
+	<link href="css/animate.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+<![endif]-->       
+
+</head><!--/head-->
+<body>
+		<form action="fonksiyon.php" method="GET">
+			<section id="form"><!--form-->
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-4" align="center">
+							<div class="login-form"><!--login form-->
+								<h1>AĞAÇ TESTİ</h1>
+								<form action="deneme.php">
+									<h3> Url ekleyin: <h3>  <input type="url" name="txt_siteharita"><br>
+										<br>
+										<button style="color: #224059 ; border:2px solid DodgerBlue;" type="submit" name="btn_harita" class="btn btn-default">Sayfaya Git</button>
+									</form>
+								</div><!--/login form-->
+							</div>		
+						</div>
+					</div>
+				</section><!--/form-->
+		</form>
+		<script src="js/jquery.js"></script>
+		<script src="js/price-range.js"></script>
+		<script src="js/jquery.scrollUp.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery.prettyPhoto.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+	</html>
