@@ -1,0 +1,2 @@
+Ardunio ile Taret 
+Step motor 360 derece dönerek kırmızı rengi gördüğünde lazer ile ateş ediyor.
